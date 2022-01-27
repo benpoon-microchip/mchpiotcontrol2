@@ -80,14 +80,14 @@
         function initCognitoSDK() {
             AWS.config.region = 'us-east-1'
             var authData = {
-                ClientId: "6nrumiaqv00kiou23etq6mqur0", // Input: Your Cognito client id here
+                ClientId: "1m8vpulamnjgcrl4nfof0g02ab", // Input: Your Cognito client id here
                 AppWebDomain: "userpool-test-0823492212.auth.us-east-1.amazoncognito.com",	// Input: Your Congnito domain name here
                 TokenScopesArray: ["email",
                     "openid"
                 ], // e.g.['phone', 'email', 'profile','openid', 'aws.cognito.signin.user.admin'],
                 RedirectUriSignIn: "https://benpoon-microchip.github.io/mchpiotcontrol2",	// Input: Your webpage url
                 RedirectUriSignOut: "https://benpoon-microchip.github.io/mchpiotcontrol2",	// Input: Your webpage url
-                UserPoolId: "us-east-1_wYDQC2ZPJ", // Input: Your Cognito user pool id here
+                UserPoolId: "us-east-1_fzMw1LyUK", // Input: Your Cognito user pool id here
             };
             var login = {};
             var auth = new AmazonCognitoIdentity.CognitoAuth(authData);
@@ -101,7 +101,7 @@
                         'UserPoolId'];
                     login[loginKey] = result.getIdToken().getJwtToken();
                     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                        IdentityPoolId: "us-east-1:8221fb3b-4d5f-462a-b35a-58f4abe4b294", // Input: Cognito identity pool ID
+                        IdentityPoolId: "us-east-1:cb39b65b-7aa0-4f85-90ab-7b63490af7b6", // Input: Cognito identity pool ID
                         Logins: login
                     });
                     AWS.config.credentials.refresh((error) => {
