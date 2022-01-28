@@ -101,7 +101,7 @@
                         'UserPoolId'];
                     login[loginKey] = result.getIdToken().getJwtToken();
                     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                        IdentityPoolId: "us-east-1:c8f5eb4a-33e6-42ec-aa2b-60ee61ac1676", // Input: Cognito identity pool ID
+                        IdentityPoolId: "us-east-1:cfaf1839-e5ab-479e-9028-480d328fe1f3", // Input: Cognito identity pool ID
                         Logins: login
                     });
                     AWS.config.credentials.refresh((error) => {
