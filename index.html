@@ -80,14 +80,14 @@
         function initCognitoSDK() {
             AWS.config.region = 'us-east-1'
             var authData = {
-                ClientId: "7hgla83ano8uv0aqtl0pkomkic", // Input: Your Cognito client id here
+                ClientId: "3vgknk60dj52g6dvu1ev9ucqbm", // Input: Your Cognito client id here
                 AppWebDomain: "userpool-test-0823492212.auth.us-east-1.amazoncognito.com",	// Input: Your Congnito domain name here
                 TokenScopesArray: ["email",
                     "openid"
                 ], // e.g.['phone', 'email', 'profile','openid', 'aws.cognito.signin.user.admin'],
                 RedirectUriSignIn: "https://benpoon-microchip.github.io/mchpiotcontrol2",	// Input: Your webpage url
                 RedirectUriSignOut: "https://benpoon-microchip.github.io/mchpiotcontrol2",	// Input: Your webpage url
-                UserPoolId: "us-east-1_5N8clnCS7", // Input: Your Cognito user pool id here
+                UserPoolId: "us-east-1_tPOlwXqZ2", // Input: Your Cognito user pool id here
             };
             var login = {};
             var auth = new AmazonCognitoIdentity.CognitoAuth(authData);
@@ -145,7 +145,7 @@
 
             $.ajax({
                 type: 'GET',
-                url: `https://mbucdten05.execute-api.us-east-1.amazonaws.com/mchpiot-deleteuserdevices?thingName=${thingName}`,
+                url: `https://cqkalgo4w8.execute-api.us-east-1.amazonaws.com/mchpiot-deleteuserdevices?thingName=${thingName}`,
                 contentType: "application/json",
                 headers: {
                     "Auth-Token": userVariable.idToken
@@ -195,7 +195,7 @@
             //get user devices
             $.ajax({
                 type: 'GET',
-                url: 'https://mbucdten05.execute-api.us-east-1.amazonaws.com/mchpiot-getuserdevices',
+                url: 'https://cqkalgo4w8.execute-api.us-east-1.amazonaws.com/mchpiot-getuserdevices',
                 contentType: "application/json",
                 headers: {
                     "Auth-Token": userVariable.idToken
@@ -272,7 +272,7 @@
             $("#registerButton").prop("disabled", true);
             $.ajax({
                 type: 'POST',
-                url: 'https://mbucdten05.execute-api.us-east-1.amazonaws.com/mchpiot-registerdevice',
+                url: 'https://cqkalgo4w8.execute-api.us-east-1.amazonaws.com/mchpiot-registerdevice',
                 contentType: "application/json",
                 dataType: 'json',
                 data: JSON.stringify(registrationData),
