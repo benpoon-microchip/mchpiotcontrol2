@@ -80,14 +80,14 @@
         function initCognitoSDK() {
             AWS.config.region = 'us-east-1'
             var authData = {
-                ClientId: "1l8k4hfdiokqfmjidhmkd6j9f6", // Input: Your Cognito client id here
+                ClientId: "663u5ont2o0n9livf8cb11t2t7", // Input: Your Cognito client id here
                 AppWebDomain: "userpool-test-0823492212.auth.us-east-1.amazoncognito.com",	// Input: Your Congnito domain name here
                 TokenScopesArray: ["email",
                     "openid"
                 ], // e.g.['phone', 'email', 'profile','openid', 'aws.cognito.signin.user.admin'],
                 RedirectUriSignIn: "https://benpoon-microchip.github.io/mchpiotcontrol2",	// Input: Your webpage url
                 RedirectUriSignOut: "https://benpoon-microchip.github.io/mchpiotcontrol2",	// Input: Your webpage url
-                UserPoolId: "us-east-1_lowa1ALCW", // Input: Your Cognito user pool id here
+                UserPoolId: "us-east-1_pKGAQ3wQm", // Input: Your Cognito user pool id here
             };
             var login = {};
             var auth = new AmazonCognitoIdentity.CognitoAuth(authData);
@@ -101,7 +101,7 @@
                         'UserPoolId'];
                     login[loginKey] = result.getIdToken().getJwtToken();
                     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                        IdentityPoolId: "us-east-1:776a2dac-cb50-40bf-8e4f-be0e50dd56ff", // Input: Cognito identity pool ID
+                        IdentityPoolId: "us-east-1:655bac4b-75d5-4f8a-8ae7-40587e1f0458", // Input: Cognito identity pool ID
                         Logins: login
                     });
                     AWS.config.credentials.refresh((error) => {
@@ -145,7 +145,7 @@
 
             $.ajax({
                 type: 'GET',
-                url: `https://mueqnqvt0j.execute-api.us-east-1.amazonaws.com/mchpiot-deleteuserdevices?thingName=${thingName}`,
+                url: `https://py76wf5eq7.execute-api.us-east-1.amazonaws.com/mchpiot-deleteuserdevices?thingName=${thingName}`,
                 contentType: "application/json",
                 headers: {
                     "Auth-Token": userVariable.idToken
@@ -195,7 +195,7 @@
             //get user devices
             $.ajax({
                 type: 'GET',
-                url: 'https://mueqnqvt0j.execute-api.us-east-1.amazonaws.com/mchpiot-getuserdevices',
+                url: 'https://py76wf5eq7.execute-api.us-east-1.amazonaws.com/mchpiot-getuserdevices',
                 contentType: "application/json",
                 headers: {
                     "Auth-Token": userVariable.idToken
@@ -272,7 +272,7 @@
             $("#registerButton").prop("disabled", true);
             $.ajax({
                 type: 'POST',
-                url: 'https://mueqnqvt0j.execute-api.us-east-1.amazonaws.com/mchpiot-registerdevice',
+                url: 'https://py76wf5eq7.execute-api.us-east-1.amazonaws.com/mchpiot-registerdevice',
                 contentType: "application/json",
                 dataType: 'json',
                 data: JSON.stringify(registrationData),
